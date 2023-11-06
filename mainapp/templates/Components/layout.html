@@ -1,0 +1,136 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.3.0/introjs.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.3.0/intro.min.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css'>
+    <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Document</title>
+</head>
+<body>
+<div class="blob"></div>
+  <div id="navlinkovalay"></div>
+
+<div class="maincontent">
+{% include "Components/header.html" %}
+     {% block content %}
+
+        {% endblock %}
+{%include "Components/footer.html" %}
+</div>
+
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>
+      $(function() {
+	// (Optional) Active an item if it has the class "is-active"
+	$(".accordion > .accordion-item.is-active").children(".accordion-panel").slideDown();
+
+	$(".accordion > .accordion-item").click(function() {
+		// Cancel the siblings
+		$(this).siblings(".accordion-item").removeClass("is-active").children(".accordion-panel").slideUp();
+		// Toggle the item
+		$(this).toggleClass("is-active").children(".accordion-panel").slideToggle("ease-out");
+	});
+});
+
+
+
+var isLast = function(word) {
+  return $(word).next().length > 0 ? false : true;
+}
+
+var getNext = function(word) {
+  return $(word).next();
+}
+
+var getVisible = function () {
+  return document.getElementsByClassName('is-visible');
+}
+
+var getFirst =  function() {
+  var node = $('.words-wrapper').children().first();
+  return node;
+}
+
+var switchWords = function(current, next) {
+  $(current).removeClass('is-visible').addClass('is-hidden');
+  $(next).removeClass('is-hidden').addClass('is-visible');
+}
+
+var getStarted = function() {
+  //We start by getting the visible element and its sibling
+  var first = getVisible();
+  var next = getNext(first);
+
+  //If our element has a sibling, it's not the last of the list. We switch the classes
+  if (next.length !== 0) {
+     switchWords(first,next);
+  } else {
+
+    //The element is the last of the list. We remove the visible class of the current element
+    $(first).removeClass('is-visible').addClass('is-hidden');
+
+    //And we get the first element of the list, and we give it the visible class. And it starts again.
+    var newEl = getFirst();
+    $(newEl).removeClass('is-hidden').addClass('is-visible');
+  }
+
+}
+
+var init = function() {
+  setInterval(function() {getStarted()}, 2000);
+}
+
+init();
+</script>
+
+<script>
+  function toggleFullscreen() {
+    if (document.fullscreenElement || document.webkitFullscreenElement ||
+        document.mozFullScreenElement || document.msFullscreenElement) {
+      // Exit fullscreen
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    } else {
+      // Enter fullscreen
+      var element = document.documentElement; // <html> element
+
+      if (element.requestFullscreen) {
+        element.requestFullscreen();
+      } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullscreen();
+      } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen();
+      } else if (element.msRequestFullscreen) {
+        element.msRequestFullscreen();
+      }
+    }
+  }
+</script>
+
+
+<script src='https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js'></script>
+
+
+  <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

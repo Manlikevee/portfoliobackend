@@ -1,0 +1,309 @@
+         {% load static %}
+
+       <div id="tab2" class="tab-content teditor">
+                  <div class="texteditor">
+<div class="sides">
+   <div class="sidebar">
+       <div class="sideicon">
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+               <g opacity="0.4" clip-path="url(#clip0_64_1623)">
+                 <path d="M3 3.65186H21C21.2652 3.65186 21.5196 3.75721 21.7071 3.94475C21.8946 4.13228 22 4.38664 22 4.65186V20.6519C22 20.9171 21.8946 21.1714 21.7071 21.359C21.5196 21.5465 21.2652 21.6519 21 21.6519H3C2.73478 21.6519 2.48043 21.5465 2.29289 21.359C2.10536 21.1714 2 20.9171 2 20.6519V4.65186C2 4.38664 2.10536 4.13228 2.29289 3.94475C2.48043 3.75721 2.73478 3.65186 3 3.65186ZM12 15.6519V17.6519H18V15.6519H12ZM8.414 12.6519L5.586 15.4799L7 16.8949L11.243 12.6519L7 8.40886L5.586 9.82386L8.414 12.6519Z" fill="#607B96"/>
+               </g>
+               <defs>
+                 <clipPath id="clip0_64_1623">
+                   <rect width="24" height="24" fill="white" transform="translate(0 0.651855)"/>
+                 </clipPath>
+               </defs>
+             </svg>
+       </div>
+
+
+
+       <div class="sideicon">
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+               <g clip-path="url(#clip0_64_1620)">
+                 <path d="M5 20.6519H19V22.6519H5V20.6519ZM12 18.6519C9.87827 18.6519 7.84344 17.809 6.34315 16.3087C4.84285 14.8084 4 12.7736 4 10.6519C4 8.53012 4.84285 6.49529 6.34315 4.995C7.84344 3.49471 9.87827 2.65186 12 2.65186C14.1217 2.65186 16.1566 3.49471 17.6569 4.995C19.1571 6.49529 20 8.53012 20 10.6519C20 12.7736 19.1571 14.8084 17.6569 16.3087C16.1566 17.809 14.1217 18.6519 12 18.6519Z" fill="#607B96"/>
+               </g>
+               <defs>
+                 <clipPath id="clip0_64_1620">
+                   <rect width="24" height="24" fill="white" transform="translate(0 0.651855)"/>
+                 </clipPath>
+               </defs>
+             </svg>
+       </div>
+
+       <div class="sideicon">
+           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+               <g opacity="0.4" clip-path="url(#clip0_64_1617)">
+                 <path d="M17 4.87793C18.5913 4.87793 20.1174 5.51007 21.2426 6.63529C22.3679 7.76051 23 9.28663 23 10.8779V14.8779C23 16.4692 22.3679 17.9954 21.2426 19.1206C20.1174 20.2458 18.5913 20.8779 17 20.8779H7C5.4087 20.8779 3.88258 20.2458 2.75736 19.1206C1.63214 17.9954 1 16.4692 1 14.8779V10.8779C1 9.28663 1.63214 7.76051 2.75736 6.63529C3.88258 5.51007 5.4087 4.87793 7 4.87793H17ZM10 9.87793H8V11.8779H6V13.8779H7.999L8 15.8779H10L9.999 13.8779H12V11.8779H10V9.87793ZM18 13.8779H16V15.8779H18V13.8779ZM16 9.87793H14V11.8779H16V9.87793Z" fill="#607B96"/>
+               </g>
+               <defs>
+                 <clipPath id="clip0_64_1617">
+                   <rect width="24" height="24" fill="white" transform="translate(0 0.87793)"/>
+                 </clipPath>
+               </defs>
+             </svg>
+       </div>
+   </div>
+   <div class="minisidebar">
+    <div id="navlinkovalays"></div>
+       <div class="minicontent flx">
+           <div class="contenttitle"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
+               <path d="M4.74998 6.65186L0.499969 0.651856L9 0.651855L4.74998 6.65186Z" fill="white"/>
+             </svg>  personal-info</div>
+
+
+             <div class="navtoggle series" onclick="datatog()">
+
+              <span class="material-symbols-outlined">
+                arrow_downward
+                </span>
+          </div>
+       </div>
+
+       <div class="differentoptions" id="aboutss">
+
+
+
+           <ul class="accordion">
+               <li class="accordion-item is-active">
+                   <h3 class="accordion-thumb">
+                       <div class="divoptionflex">
+                       <div class="divarrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
+                           <path d="M15.0802 4.30056V12.9672C15.0802 13.1588 15.0041 13.3425 14.8687 13.4779C14.7332 13.6134 14.5495 13.6895 14.358 13.6895H1.35796C1.16642 13.6895 0.982719 13.6134 0.847276 13.4779C0.711833 13.3425 0.635742 13.1588 0.635742 12.9672V3.57834H14.358C14.5495 3.57834 14.7332 3.65443 14.8687 3.78988C15.0041 3.92532 15.0802 4.10902 15.0802 4.30056ZM8.15696 2.1339H0.635742V1.41168C0.635742 1.22013 0.711833 1.03643 0.847276 0.900987C0.982719 0.765544 1.16642 0.689453 1.35796 0.689453H6.71252L8.15696 2.1339Z" fill="#E99287"/>
+                         </svg>
+                       </div>
+                       <div class="divtext">bio</div>
+                   </div>
+       </h3>
+
+                   <div class="accordion-panel">
+                       <div class="accordionlink browser-section" data-browser-tab="tab1"> <div class="sec tang" >
+                                  <img src="{% static 'dez.svg' %}" alt="">
+
+                       </div> <div class="wrd">About Me</div> </div>
+
+                       <div class="accordionlink browser-section" data-browser-tab="tab2">  <div class="sec tang" >
+                            <img src="{% static 'dez.svg' %}" alt="">
+                       </div> <div class="wrd">Tech Stack</div> </div>
+
+
+
+                   </div>
+               </li>
+
+               <li class="accordion-item">
+                   <h3 class="accordion-thumb">
+                       <div class="divoptionflex">
+                           <div class="divarrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
+                               <path d="M15.0802 4.30056V12.9672C15.0802 13.1588 15.0041 13.3425 14.8687 13.4779C14.7332 13.6134 14.5495 13.6895 14.358 13.6895H1.35796C1.16642 13.6895 0.982719 13.6134 0.847276 13.4779C0.711833 13.3425 0.635742 13.1588 0.635742 12.9672V3.57834H14.358C14.5495 3.57834 14.7332 3.65443 14.8687 3.78988C15.0041 3.92532 15.0802 4.10902 15.0802 4.30056ZM8.15696 2.1339H0.635742V1.41168C0.635742 1.22013 0.711833 1.03643 0.847276 0.900987C0.982719 0.765544 1.16642 0.689453 1.35796 0.689453H6.71252L8.15696 2.1339Z" fill="#43D9AD"/>
+                             </svg></div>
+                           <div class="divtext">Interest</div>
+                       </div>
+                   </h3>
+                   <div class="accordion-panel">
+
+
+                     <div class="accordionlink browser-section" data-browser-tab="tab3">  <div class="tang sec" >
+                                  <img src="{% static 'dez.svg' %}" alt="">
+
+
+                       </div> <div class="wrd">Interest</div> </div>
+
+                   </div>
+               </li>
+
+               <li class="accordion-item">
+                   <h3 class="accordion-thumb">
+                       <div class="divoptionflex">
+                           <div class="divarrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
+                               <path d="M15.0802 4.30056V12.9672C15.0802 13.1588 15.0041 13.3425 14.8687 13.4779C14.7332 13.6134 14.5495 13.6895 14.358 13.6895H1.35796C1.16642 13.6895 0.982719 13.6134 0.847276 13.4779C0.711833 13.3425 0.635742 13.1588 0.635742 12.9672V3.57834H14.358C14.5495 3.57834 14.7332 3.65443 14.8687 3.78988C15.0041 3.92532 15.0802 4.10902 15.0802 4.30056ZM8.15696 2.1339H0.635742V1.41168C0.635742 1.22013 0.711833 1.03643 0.847276 0.900987C0.982719 0.765544 1.16642 0.689453 1.35796 0.689453H6.71252L8.15696 2.1339Z" fill="#3A49A4"/>
+                             </svg></div>
+                           <div class="divtext">Education</div>
+                       </div>
+                   </h3>
+                   <div class="accordion-panel">
+
+                     <div class="accordionlink " >  <div class="tang sec" data-tab="tab4">
+                                   <img src="{% static 'dez.svg' %}" alt="">
+
+                       </div> <div class="wrd browser-section" data-browser-tab="tab4">high-school</div> </div>
+
+                       <div class="accordionlink " >  <div class="tang sec" data-tab="tab5">
+                                     <img src="{% static 'dez.svg' %}" alt="">
+
+                       </div> <div class="wrd browser-section" data-browser-tab="tab5">University</div> </div>
+                   </div>
+               </li>
+           </ul>
+
+           <br>
+           <div class="minicontent fullbar">
+               <div class="contenttitle"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
+                   <path d="M4.74998 6.65186L0.499969 0.651856L9 0.651855L4.74998 6.65186Z" fill="white"/>
+                 </svg> Contact Me</div>
+           </div>
+
+           <div class="accordion-panel" style="display: flex; width: 100%; padding: 5px; margin-top: 6px;">
+
+               <a href=""> <div class="tang">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                       <path d="M0.811096 0.548828H15.4108C15.6259 0.548828 15.8322 0.634283 15.9844 0.786393C16.1365 0.938503 16.2219 1.14481 16.2219 1.35992V14.3375C16.2219 14.5526 16.1365 14.7589 15.9844 14.911C15.8322 15.0631 15.6259 15.1486 15.4108 15.1486H0.811096C0.59598 15.1486 0.389675 15.0631 0.237565 14.911C0.0854545 14.7589 0 14.5526 0 14.3375V1.35992C0 1.14481 0.0854545 0.938503 0.237565 0.786393C0.389675 0.634283 0.59598 0.548828 0.811096 0.548828ZM8.15963 7.59158L2.95888 3.17516L1.90851 4.41127L8.17017 9.728L14.3191 4.40721L13.2582 3.18002L8.16044 7.59158H8.15963Z" fill="#607B96"/>
+                     </svg>
+               </div> <div class="wrd">odahviktor</div> </a>
+
+               <a href=""> <div class="tang">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                       <path d="M16.221 13.0453V16.2319C16.2211 16.46 16.1347 16.6797 15.9791 16.8466C15.8236 17.0136 15.6105 17.1153 15.3829 17.1312C14.9891 17.1583 14.6674 17.1727 14.4187 17.1727C6.45507 17.1727 0 10.7176 0 2.754C0 2.50527 0.0135175 2.18356 0.0414537 1.78975C0.0574246 1.56215 0.159129 1.34908 0.326046 1.19354C0.492962 1.038 0.712664 0.951557 0.940819 0.95166H4.12735C4.23913 0.951547 4.34696 0.992987 4.4299 1.06793C4.51283 1.14287 4.56495 1.24597 4.57613 1.35719C4.59686 1.56445 4.61578 1.72937 4.63381 1.85463C4.8129 3.10448 5.17992 4.32008 5.72242 5.4602C5.80803 5.64044 5.75215 5.85582 5.58994 5.97117L3.64522 7.36077C4.83427 10.1314 7.04222 12.3393 9.81282 13.5284L11.2006 11.5872C11.2573 11.5079 11.3401 11.4511 11.4345 11.4265C11.5288 11.402 11.6288 11.4113 11.717 11.453C12.857 11.9945 14.0723 12.3606 15.3217 12.5389C15.4469 12.5569 15.6118 12.5767 15.8173 12.5966C15.9284 12.6079 16.0312 12.6601 16.106 12.7431C16.1807 12.826 16.2221 12.9337 16.2219 13.0453H16.221Z" fill="#607B96"/>
+                     </svg>
+               </div> <div class="wrd">+2347013753576</div> </a>
+           </div>
+       </div>
+   </div>
+</div>
+
+<div class="sidecontent">
+   <div class="minisidebar datasidebar">
+       <div id="element1" class="browser-header swiper-container dashboardtabs" style="display: flex;">
+           <div class="minicontent browser-header-tabs swiper-wrapper">
+
+           </div>
+
+
+       </div>
+
+
+
+<div class="data">
+
+ <div class="browser-content">
+   <div class="browser-tab-content" data-browser-target="tab1">
+     <div class="bigtextarea">
+       <div class="textsideone">
+           <div class="line-number-container">
+               <div class="line-numbers" id="lineNumbers"></div>
+               <div class="code-content" id="codeContent" >
+                   <div class="damn">
+                       /**
+                   </div>
+                   <p>
+                       Hello there! I'm a <span class="const">frontend web developer</span>  who's also curious about backend technologies like <span class="string"> Django and Flask. I work with HTML, CSS, JavaScript, React, Next.js, and Gatsby </span> to create user-friendly websites.
+                   </p>
+                   <p>
+                    In addition I have a passion for <span class="consts">mobile app development</span> and specialize in creating mobile applications using <span class="const">React Native</span>. I enjoy leveraging my skills to craft engaging and efficient apps for a seamless user experience.
+                  </p>
+                   <p>
+                       Beyond designing, I'm exploring the backend world to build robust web applications using <span class="funcname"> Django and Flask</span>. Whether it's crafting code or discovering new trends, I'm passionate about creating engaging online experiences.
+                   </p>
+                   <p>
+                       When I'm not <span class="string"> coding</span>, you can find me staying up to date with industry trends, contributing to the <span class="const"> developer community </span>, and seeking innovative solutions. I'm excited to connect, collaborate, and code together!
+                   </p>
+
+                   <p>
+                       The thrill of the next breakthrough beckons, and I'm eagerly anticipating the opportunity to connect, code, and create impactful narratives together.
+                   </p>
+
+
+
+
+                 <div class="damn">
+                   */
+                 </div>
+                </div>
+           </div>
+       </div>
+       <div class="textsidetwo">
+         <div class="sectitle">
+           // Code snippet showcase:
+         </div>
+
+         <div class="codeshowcasearea">
+           <!-- <div class="showcasecard">
+               <div class="showcaseheader">
+                   <div class="showcaseimg">
+                       <img src="" alt="">
+                   </div>
+                   <div class="showcasedetails">
+                       function who_am_i(firstName, lastName) {
+                           var fullName = firstName + " " + lastName;
+                           alert("Hello, " + fullName + "!");
+                       }
+
+                       // Example usage
+                       who_am_i("John", "Doe")
+                   </div>
+               </div>
+           </div> -->
+
+           <div class="showcasecard">
+               <div class="showcaseheader">
+
+                   <div class="showcaseimg">
+                                 <img class="simg"  src="{% static 'image 116.png' %}" alt="">
+
+                   </div>
+   <div class="showcasebody">
+   <div class="myusername">@manlikevee</div>
+   <div class="mytime">Created 5 months ago</div>
+   </div>
+               </div>
+                   <div class="showcasedetails">
+                     <span class="const">const</span>   technologies = [ <span class="string"> 'django', 'HTML', 'JS', 'react', 'Nextjs', 'vue', 'React_Native' </span>];
+   <div>
+   <span class="const"> function </span> <span class="funcname">searchStack</span>  <span class="consts">(searchText)</span>  {
+       return technologies.<span class="funcname">filter</span>(tech =>
+           tech.<span class="funcname">toLowerCase</span>().<span class="funcname">includes</span>(searchText.<span class="funcname">toLowerCase</span>())
+       );
+   }
+
+   // Example usage
+   <span class="const">const</span> searchTerm = '<span class="string" id="textDiv">react</span>';
+   <span class="const">const</span> searchResults = <span class="funcname">searchStack</span>(searchTerm);
+   <div class="consts">
+    console.log(searchResults);</div>
+   </div>
+
+                                           </div>
+
+           </div>
+   <script>
+
+ // Array of text values to display
+ var textArray = ['django', 'HTML', 'JS', 'react', 'Nextjs', 'vue', 'React_Native'];
+ var currentIndex = 0;
+
+        function changeTextWithAnimation() {
+            // Fade out the text
+            document.getElementById("textDiv").style.opacity = 0;
+
+            setTimeout(function() {
+                // Change the text and fade it back in
+                document.getElementById("textDiv").textContent = textArray[currentIndex];
+                document.getElementById("textDiv").style.opacity = 1;
+                currentIndex = (currentIndex + 1) % textArray.length;
+            }, 500); // Wait for 500 milliseconds (0.5 seconds) for the text to fade out before changing it
+        }
+
+        changeTextWithAnimation();
+
+        setInterval(changeTextWithAnimation, 2000);
+   </script>
+
+         </div>
+       </div>
+   </div>
+
+   </div>
+   <div class="browser-tab-content csoon" data-browser-target="tab2">Content for Section 2</div>
+   <div class="browser-tab-content" data-browser-target="tab3">Content for Section 3</div>
+   <div class="browser-tab-content" data-browser-target="tab4">Content for Section 3</div>
+   <div class="browser-tab-content" data-browser-target="tab5">Content for Section 3</div>
+   <div class="browser-tab-content" id="noactive">No Active Tabs</div>
+ </div>
+</div>
+
+
+</div>
+</div>
+                  </div>
+               </div>

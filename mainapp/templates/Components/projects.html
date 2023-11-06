@@ -1,0 +1,271 @@
+     <div id="tab3" class="tab-content teditor">
+                    <div class="texteditor">
+                        <div class="sides" id='veesidebar'>
+
+                            <div class="minisidebar">
+                              <div id="navlinkovalayss"></div>
+                              <div class="minicontent flx">
+                                  <div class="contenttitle zind"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
+                                      <path d="M4.74998 6.65186L0.499969 0.651856L9 0.651855L4.74998 6.65186Z" fill="white"/>
+                                    </svg>  Projects</div>
+
+
+                                    <div class="navtoggle series" onclick="datatogss()">
+
+                                     <span class="material-symbols-outlined">
+                                       arrow_downward
+                                       </span>
+                                 </div>
+                              </div>
+                                <div class="differentoptions" id="projects">
+
+
+                        <br>
+
+                        <form class="checkboxes" id="filter-form">
+
+
+
+
+
+                              <label class="checkbox-label">
+                                <input class="filter-checkbox" name="category" type="checkbox" checked  value="HTML">
+                                <span class="checkbox-custom"></span>
+                             <div class="labelflex">
+                                <div class="labelicon">
+
+                                  <i class="fa-brands fa-html5"></i>
+                                </div>
+                                <div class="labeltext">HTML</div>
+                             </div>
+                              </label>
+                              <label class="checkbox-label">
+                                <input class="filter-checkbox" name="category" type="checkbox" checked  value="JS">
+                                <span class="checkbox-custom"></span>
+                             <div class="labelflex">
+                                <div class="labelicon">
+
+                                  <i class="fa-brands fa-node-js"></i>
+                                </div>
+                                <div class="labeltext">  JavaScript</div>
+                             </div>
+                              </label>
+                              <label class="checkbox-label" >
+                                <input class="filter-checkbox" name="category" type="checkbox" checked  value="DJANGO">
+                                <span class="checkbox-custom"></span>
+                             <div class="labelflex">
+                                <div class="labelicon">
+
+                                  <i class="fa-brands fa-python"></i>
+                                </div>
+                                <div class="labeltext">Django</div>
+                             </div>
+                              </label>
+
+                              <label class="checkbox-label" >
+                                <input class="filter-checkbox" name="category" type="checkbox" checked  value="NATIVE">
+                                <span class="checkbox-custom"></span>
+                             <div class="labelflex">
+                                <div class="labelicon">
+
+                                  <i class="fa-brands fa-react"></i>
+                                </div>
+                                <div class="labeltext">React Native</div>
+                             </div>
+                              </label>
+                              <label class="checkbox-label" >
+                                <input class="filter-checkbox" name="category" type="checkbox" checked  value="REACT">
+                                <span class="checkbox-custom"></span>
+                             <div class="labelflex">
+                                <div class="labelicon">
+
+                                  <i class="fa-brands fa-react"></i>
+                                </div>
+                                <div class="labeltext">React JS</div>
+                             </div>
+                              </label>
+                              <label class="checkbox-label" >
+                                <input class="filter-checkbox" name="category" type="checkbox" checked  value="PHP">
+                                <span class="checkbox-custom"></span>
+                             <div class="labelflex">
+                                <div class="labelicon">
+
+                                  <i class="fa-brands fa-php"></i>
+                                </div>
+                                <div class="labeltext">PHP</div>
+                             </div>
+                              </label>
+                              <label class="checkbox-label" >
+                                <input class="filter-checkbox" name="category" type="checkbox" checked  value="NEXT">
+                                <span class="checkbox-custom"></span>
+                             <div class="labelflex">
+                                <div class="labelicon">
+                                  <i class="fa-brands fa-node-js"></i>
+                                </div>
+                                <div class="labeltext">Next</div>
+                             </div>
+                              </label>
+                              <label class="checkbox-label">
+                                <input type="checkbox" name="category" checked  value="GATSBY">
+                                <span class="checkbox-custom"></span>
+                             <div class="labelflex">
+                                <div class="labelicon">
+
+                                  <i class="fa-solid fa-code"></i>
+                                </div>
+                                <div class="labeltext">Gatsby</div>
+                             </div>
+                              </label>
+
+
+                            </form>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidecontent">
+                            <div class="minisidebar">
+                                <div class="minicontents rw">
+                                    <div class="minicontent">
+                                        <div class="contenttitle showtab" id="allpro" onclick="toggletaball()">  All Projects  <span style="color: #607B96;">x</span> </div>
+
+                                    </div>
+                                    <div class="minicontent">
+                                      <div class="contenttitle hidetab" id="prodet" onclick="toggletabdetail()">  Project Detail <span style="color: #607B96;">x</span> </div>
+                                    </div>
+
+                                </div>
+                            <div class="bigtextarea showdata" id="majortabs">
+                                <div class="textsideone cform">
+
+                                    <div class="sectitle" style="    display: flex;
+                                    align-self: flex-start; padding: 10px;">
+                                        // Got a project in mind or a question?
+                                      </div>
+
+<div class="gridcards">
+
+
+    {% for a in myprojects %}
+   <div class="myherocard" data-category="{{a.category}}" onclick="toggletabdetail('{{a.reference}}')">
+<div class="myherocardtitle">
+   <span class="pname">Project 1</span> <span class="pdesc">// _{{a.title|truncatechars:15}}</span>
+</div>
+
+<div class="herocard">
+
+    <div class="heroimg">
+        <div class="tinybox"><i class="fa-brands fa-react"></i></div>
+        <img src="{{ a.coverimage.url }}" alt="" loading="lazy">
+    </div>
+    <div class="herotext">
+        {{a.description|truncatechars:59}}
+    </div>
+</div>
+   </div>
+
+{%endfor%}
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+                                </div>
+
+                            </div>
+                            <div class="projectdetail hidedata" id="projectdetail">
+
+                                                      <div class="loadingcontainer" id="projectloading">
+                                <div class="loadingspinner">
+                                  <div id="square1"></div>
+                                  <div id="square2"></div>
+                                  <div id="square3"></div>
+                                  <div id="square4"></div>
+                                  <div id="square5"></div>
+                                </div>
+                                <h3>Loading</h3>
+                              </div>
+
+                            <br>
+                            <div class="projectdetail">
+                              <br>
+                                                  <div class="projectdetailflex">
+                                                  <div class="detailshorttext">
+                                                    <h1 id="ttle">
+                                                      VEE TECH INSTITUTE  <i class="fa-brands fa-react"></i>
+                                                    </h1>
+                                                    <p id="description">
+                                                      Green Sun Co is a Mexican company specializing in the cultivation, selection, packing, and distribution of high-quality Hass avocados. With over 10 years of experience, they have established themselves as a brand synonymous with quality and freshness, delivering their products both nationally and internationally.
+                                                    </p>
+                                                  </div>
+
+
+
+
+                                                    <div class="detailgridbox">
+                              <div class="prod">
+                                <div class="ptitle">
+                                  Client
+                                </div>
+
+                                <div class="pbody" id="client">
+                                  Green Sun Co.
+                                </div>
+                              </div>
+                              <div class="prod">
+                                <div class="ptitle">
+                                  Live website
+                                </div>
+
+                                <div class="pbody" id="websiteurl">
+
+                                </div>
+                              </div>
+
+                              <div class="prod">
+                                <div class="ptitle">
+                                  Date
+                                </div>
+
+                                <div class="pbody">
+                                  May 27, 2023
+                                </div>
+                              </div>
+
+                              <div class="prod">
+                                <div class="ptitle">
+                                  Services
+                                </div>
+
+                                <div class="pbody">
+                                  <i class="fa-brands fa-python"></i>  <i class="fa-brands fa-react"></i> <i class="fa-brands fa-css3-alt"></i>
+                                </div>
+                              </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <br>
+
+
+                                                <div class="image-container" id="allimg">
+
+
+
+                                                </div>
+
+                            </div>
+                        </div>
+                                           </div>
+                                        </div>
+                </div>
