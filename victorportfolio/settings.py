@@ -75,10 +75,22 @@ WSGI_APPLICATION = 'victorportfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': "django.db.backends.postgresql_psycopg2",
+        'HOST':  'db.dqmkotjvtdhgnvhsukoj.supabase.co',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'SecureServer#123',
+        'PORT': '5432',
+        'CONN_MAX_AGE': 600,
     }
 }
 
@@ -130,3 +142,8 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dlx9ilwn0',
+    'API_KEY': '989472589163883',
+    'API_SECRET': 'X7miqCL_Gv0zWaWhFM1-7mkFTkE'
+}
