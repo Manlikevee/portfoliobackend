@@ -143,7 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dlx9ilwn0',
+    'CLOUD_NAME': 'dnenbxhys',
     'API_KEY': '989472589163883',
     'API_SECRET': 'X7miqCL_Gv0zWaWhFM1-7mkFTkE'
 }
