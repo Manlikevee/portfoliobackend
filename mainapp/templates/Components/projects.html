@@ -152,7 +152,7 @@
     {% for a in myprojects %}
    <div class="myherocard" data-category="{{a.category}}" onclick="toggletabdetail('{{a.reference}}')">
 <div class="myherocardtitle">
-   <span class="pname">Project 1</span> <span class="pdesc">// _{{a.title|truncatechars:15}}</span>
+   <span class="pname">Project {{ forloop.counter }}</span> <span class="pdesc">// _{{a.title|truncatechars:15}}</span>
 </div>
 
 <div class="herocard">
