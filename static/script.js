@@ -726,7 +726,7 @@ fetch(`/projectdetail/${value}`)
                   link.target = "_blank";
                 }
                 link.textContent = liveurl; // Set the link text
-                websiteurl.appendChild(link);
+          
 var container = document.getElementById("allimg");
 
 // Clear the existing content of the container
