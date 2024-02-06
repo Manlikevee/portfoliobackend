@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': "django.db.backends.postgresql_psycopg2",
         'HOST':  'db.dqmkotjvtdhgnvhsukoj.supabase.co',
         'NAME': 'postgres',
-        'USER': 'postgres',
+        'USER': 'postgres.dqmkotjvtdhgnvhsukoj',
         'PASSWORD': 'SecureServer#123',
         'PORT': '5432',
         'CONN_MAX_AGE': 600,
