@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'victorportfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': "django.db.backends.postgresql_psycopg2",
-        'HOST':  'db.dqmkotjvtdhgnvhsukoj.supabase.co',
+        'HOST':  'aws-0-us-east-1.pooler.supabase.com',
         'NAME': 'postgres',
         'USER': 'postgres.dqmkotjvtdhgnvhsukoj',
         'PASSWORD': 'SecureServer#123',
