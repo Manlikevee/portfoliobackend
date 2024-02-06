@@ -4,4 +4,4 @@ from .models import *
 
 
 admin.site.register(Support)
-admin.site.register(MyImage)
+admin.site.register(Contact)

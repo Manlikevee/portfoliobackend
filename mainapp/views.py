@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from mainapp.forms import myprojectform, MyImageForm
+from mainapp.forms import myprojectform, MyImageForm, mycontactform
 from mainapp.models import MyImage, Support
 from mainapp.serializer import Posts, Postsimg
 
@@ -15,7 +15,15 @@ from mainapp.serializer import Posts, Postsimg
 
 def homepage(request):
     myprojects = Support.objects.all()
-    return render(request, 'index.html', {'myprojects': myprojects})
+    form = mycontactform(request.POST)
+    if request.method == 'POST':
+        
+        if form.is_valid():
+            my_data = form.save(commit=False)
+            my_data.save()
+            print('done')
+            
+    return render(request, 'index.html', {'myprojects': myprojects, 'form':form})
 
 
 @api_view(['GET'])

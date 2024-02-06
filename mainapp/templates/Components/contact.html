@@ -94,24 +94,27 @@
                                       </div>
 
 
-                                    <div class="conactusform">
-                                        <div class="conactdata">
+                                    <form method="post" class="conactusform">
+                                      {% csrf_token %}
+                                      
+                                      <div class="conactdata">
                                             <label for="Username">_name:</label>
-                                            <input type="text" id="inputname1" placeholder="Enter Your Full Name">
+                                            
+                                            <input name="name" type="text" id="inputname1" placeholder="Enter Your Full Name">
                                         </div>
                                         <div class="conactdata">
                                             <label for="Username">_email:</label>
-                                            <input type="text" id="inputname2" placeholder="Enter Your Full Name">
+                                            <input name="email" type="text" id="inputname2" placeholder="Enter Your Full Name">
                                         </div>
                                         <div class="conactdata">
-                                            <label for="Username">_email:</label>
-                                            <textarea name="" id="textarea" cols="10" rows="3"></textarea>
+                                            <label for="Username">_message:</label>
+                                            <textarea name="message" id="textarea" cols="10" rows="3"></textarea>
                                         </div>
 
                                         <div class="contactdata">
-                                           <button>submit-message</button>
+                                           <button type="submit">submit-message</button>
                                         </div>
-                                    </div>
+                                      </form>
 
 
 

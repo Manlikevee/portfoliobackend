@@ -1,5 +1,5 @@
 from django import forms
-from .models import MyImage, Support
+from .models import MyImage, Support, Contact
 
 
 class MyImageForm(forms.ModelForm):
@@ -17,3 +17,10 @@ class myprojectform(forms.ModelForm):
     class Meta:
         model = Support
         fields = ['title', 'description', 'category', 'coverimage']
+
+
+
+class mycontactform(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['name', 'email', 'message']
