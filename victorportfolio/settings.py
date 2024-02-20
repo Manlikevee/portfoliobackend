@@ -88,7 +88,7 @@ DATABASES = {
         'HOST':  'aws-0-us-east-1.pooler.supabase.com',
         'NAME': 'postgres',
         'USER': 'postgres.dqmkotjvtdhgnvhsukoj',
-        'PASSWORD': 'SecureServer#123',
+        'PASSWORD': 'd1gcfnhBxXnELKkk',
         'PORT': '5432',
         'CONN_MAX_AGE': 600,
     }
