@@ -89,7 +89,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres.dqmkotjvtdhgnvhsukoj',
         'PASSWORD': 'd1gcfnhBxXnELKkk',
-        'PORT': '5432',
+        'PORT': '6543',
         'CONN_MAX_AGE': 600,
     }
 }
