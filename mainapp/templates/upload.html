@@ -1,80 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Project Data</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-container {
+        .image-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
             margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
         }
-        .form-container h2 {
+
+        .image-container {
             text-align: center;
         }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-        }
-        .form-group input[type="text"],
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        .form-group input[type="file"] {
-            width: 100%;
-        }
-        .form-group button {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        .image-preview {
-            margin-top: 20px;
-        }
-        .image-preview img {
+
+        .image-container img {
             max-width: 100px;
             max-height: 100px;
-            margin-right: 10px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .image-container p {
+            font-size: 0.9em;
+            margin-top: 5px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="form-container">
             <h2>Upload Project Data</h2>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form.as_p }}
-                     {{ imageform.as_table }}
+                <p>
+                    <label for="id_title">Title:</label>
+                    <input type="text" name="title" maxlength="500" id="id_title">
+                </p>
+
+                <p>
+                    <label for="id_description">Description:</label>
+                    <textarea name="description" cols="40" rows="10" maxlength="5000" id="id_description"></textarea>
+                </p>
+
+                <p>
+                    <label for="id_category">Category:</label>
+                    <select name="category" id="id_category">
+                        <option value="HTML" selected>HTML</option>
+                        <option value="JS">JS</option>
+                        <option value="DJANGO">DJANGO</option>
+                        <option value="NATIVE">NATIVE</option>
+                        <option value="REACT">REACT</option>
+                        <option value="NEXT">NEXT</option>
+                        <option value="GATSBY">GATSBY</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="id_coverimage">Coverimage:</label>
+                    <input type="file" name="coverimage" accept="image/*" id="id_coverimage">
+                </p>
+
+                <p>
+                    <label for="id_image">Image:</label>
+                    <input type="file" name="image" accept="image/*" multiple required id="id_image">
+                </p>
+
+                <div id="compression-info"></div> <!-- Container to display size info -->
+                <div class="image-preview" id="original-preview"></div> <!-- Container for original image previews -->
+                <div class="image-preview" id="compressed-preview"></div> <!-- Container for compressed image previews -->
+
                 <button type="submit">Submit Project Data</button>
             </form>
         </div>
-
-
     </div>
+
+    <script>
+        document.getElementById('id_image').addEventListener('change', handleImageCompression);
+
+        async function handleImageCompression(event) {
+            const files = event.target.files;
+            const compressionInfoDiv = document.getElementById('compression-info');
+            const originalPreviewDiv = document.getElementById('original-preview');
+            const compressedPreviewDiv = document.getElementById('compressed-preview');
+
+            compressionInfoDiv.innerHTML = ''; // Clear previous info
+            originalPreviewDiv.innerHTML = ''; // Clear previous original previews
+            compressedPreviewDiv.innerHTML = ''; // Clear previous compressed previews
+
+            const compressedFiles = await Promise.all(Array.from(files).map(file => compressAndPreviewImage(file)));
+
+            // Replace the original file input with the compressed files
+            const dataTransfer = new DataTransfer();
+            compressedFiles.forEach(file => dataTransfer.items.add(file));
+            event.target.files = dataTransfer.files;
+        }
+
+        function compressAndPreviewImage(file) {
+            return new Promise((resolve) => {
+                const originalSizeMB = (file.size / (1024 * 1024)).toFixed(2); // Size before compression
+
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function () {
+                    const img = new Image();
+                    img.src = reader.result;
+
+                    img.onload = function () {
+                        // Display original image preview
+                        document.getElementById('original-preview').innerHTML += `
+                            <div class="image-container">
+                                <img src="${img.src}" alt="Original Image">
+                                <p>Original Size: ${originalSizeMB} MB</p>
+                            </div>
+                        `;
+
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+
+                        // Check for transparency
+                        ctx.drawImage(img, 0, 0);
+                        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                        let hasTransparency = false;
+                        for (let i = 0; i < imageData.data.length; i += 4) {
+                            if (imageData.data[i + 3] < 255) { // Check alpha channel
+                                hasTransparency = true;
+                                break;
+                            }
+                        }
+
+                        // If the image has transparency, draw it onto a white background first
+                        if (hasTransparency) {
+                            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+                            ctx.fillStyle = '#FFFFFF'; // Set background color to white
+                            ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill canvas with white
+                        }
+
+                        ctx.drawImage(img, 0, 0); // Draw the image again
+
+                        canvas.toBlob((compressedBlob) => {
+                            const compressedSizeMB = (compressedBlob.size / (1024 * 1024)).toFixed(2); // Size after compression
+                            const compressedBlobUrl = URL.createObjectURL(compressedBlob);
+
+                            // Display compressed image preview
+                            document.getElementById('compressed-preview').innerHTML += `
+                                <div class="image-container">
+                                    <img src="${compressedBlobUrl}" alt="Compressed Image">
+                                    <p>Compressed Size: ${compressedSizeMB} MB</p>
+                                </div>
+                            `;
+
+                            const compressedFile = new File([compressedBlob], file.name, {
+                                type: 'image/jpeg' // Assuming JPEG format for compression
+                            });
+
+                            resolve(compressedFile);
+                        }, 'image/jpeg', 0.8); // Adjust quality/compression ratio
+                    };
+                };
+            });
+        }
+    </script>
 </body>
+
 </html>
